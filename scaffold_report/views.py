@@ -78,7 +78,7 @@ class DownloadReportView(DataExportMixin, ScaffoldReportMixin, TemplateView):
             return response
         elif download_type == "appy":
             filename = 'report'
-            ext = '.odt'
+            ext = '.doc'
             appy_context = self.report.get_appy_context()
             template_name = self.report.get_appy_template()
             from appy.pod.renderer import Renderer
