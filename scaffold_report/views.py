@@ -82,7 +82,7 @@ class DownloadReportView(DataExportMixin, ScaffoldReportMixin, TemplateView):
             appy_context = self.report.get_appy_context()
             # filename = template name
             template = appy_context.get("template", None)
-            filename = getattr(template, "name", "report")
+            filename = getattr(template, "name", "report").strip()
             template_name = self.report.get_appy_template()
             from appy.pod.renderer import Renderer
             outfile_name = tempfile.gettempdir() + '/appy' + str(time.time()) + ext
