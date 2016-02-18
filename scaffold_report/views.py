@@ -80,6 +80,9 @@ class DownloadReportView(DataExportMixin, ScaffoldReportMixin, TemplateView):
             filename = 'report'
             ext = '.odt'
             appy_context = self.report.get_appy_context()
+            # filename = template name
+            template = appy_context.get("template", None)
+            filename = getattr(template, "name", "report")
             template_name = self.report.get_appy_template()
             from appy.pod.renderer import Renderer
             outfile_name = tempfile.gettempdir() + '/appy' + str(time.time()) + ext
